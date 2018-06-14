@@ -169,6 +169,7 @@ class Example(wx.Frame):
             executor = ThreadPoolExecutor(len(song_list))
             future_tasks = [executor.submit(login_process, save_directory, song) for song in song_list]
             wait(future_tasks, return_when=ALL_COMPLETED)
+            wx.MessageBox("全部歌曲下载完毕,请前往文件夹中查看！")
         else:  # 输入歌曲名称或保存目录为空
             wx.MessageBox("您的输入为空，请输入歌曲名称和保存目录！")
 
